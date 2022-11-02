@@ -122,6 +122,7 @@ class _SignupScreenState extends State<SignupScreen> {
                         filled: true,
                         hintStyle: MyFonts.w500.size(15).setColor(kGrey10),
                       ),
+                      obscureText: true,
                     ),
                   ),
                   Container(height: 23,),

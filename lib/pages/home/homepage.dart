@@ -135,11 +135,6 @@ class _HomePageState extends State<HomePage> {
               });
           if(xFile!=null){
             var bytes = File(xFile!.path).readAsBytesSync();
-            var imageSize = (bytes.lengthInBytes/(1048576)); // dividing by 1024*1024
-            if(imageSize>2.5){
-              ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Maximum image size can be 2.5 MB")));
-              return;
-            }
             var imageString = base64Encode(bytes);
             print(imageString);
             bool res = await Navigator.of(context).push(MaterialPageRoute(
