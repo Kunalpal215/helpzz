@@ -36,6 +36,8 @@ dependencies:
   http: ^0.13.5
   intl: ^0.17.0
   timeago: ^3.3.0
+  widget_loading: ^0.3.2
+  simple_animations: ^5.0.0+2
 
 dev_dependencies:
   flutter_test:

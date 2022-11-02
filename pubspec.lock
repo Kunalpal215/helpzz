@@ -317,6 +317,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.1"
+  simple_animations:
+    dependency: "direct main"
+    description:
+      name: simple_animations
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "5.0.0+2"
   sky_engine:
     dependency: transitive
     description: flutter
@@ -385,6 +392,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.2"
+  widget_loading:
+    dependency: "direct main"
+    description:
+      name: widget_loading
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.3.2"
   win32:
     dependency: transitive
     description:

@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:helpzz/globals/colors.dart';
 import 'package:helpzz/globals/my_fonts.dart';
@@ -12,6 +11,7 @@ import 'package:helpzz/widgets/appbar.dart';
 import 'package:helpzz/widgets/buySell.dart';
 import 'package:http/http.dart' as http;
 import 'package:image_picker/image_picker.dart';
+import 'package:widget_loading/widget_loading.dart';
 class HomePage extends StatefulWidget {
   static const id = "/home";
   const HomePage({Key? key}) : super(key: key);
@@ -65,39 +65,42 @@ class _HomePageState extends State<HomePage> {
     Stream typeStream = selectedTypeController.stream.asBroadcastStream();
     return Scaffold(
       appBar: appBar(screenwidth),
-      body: (!loading1 && !loading2) ? Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(top: 15),
-            child: Row(
-              children: [
-                GestureDetector(
-                  onTap: (){
-                    if(category=="Sell"){
-                      setState(() {
-                        category="Buy";
-                      });
-                    }
-                  },
-                  child: ItemTypeBar(text: "Buy", margin: EdgeInsets.only(left: 16,bottom: 10) ,textStyle: MyFonts.w500.size(14).setColor(category=="Buy" ? kBlack : kWhite),backgroundColor: category=="Buy" ? lBlue2 : kBlueGrey),
+      body: CircularWidgetLoading(
+        dotColor: lBlue2,
+        dotCount: 8,
+        loading: (loading1 || loading2),
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(top: 15),
+                child: Row(
+                  children: [
+                    GestureDetector(
+                      onTap: (){
+                        if(category=="Sell"){
+                          setState(() {
+                            category="Buy";
+                          });
+                        }
+                      },
+                      child: ItemTypeBar(text: "Buy Items", margin: EdgeInsets.only(left: 16,bottom: 10) ,textStyle: MyFonts.w500.size(14).setColor(category=="Buy" ? kBlack : kWhite),backgroundColor: category=="Buy" ? lBlue2 : kBlueGrey),
+                    ),
+                    GestureDetector(
+                      onTap: (){
+                        if(category=="Buy"){
+                          setState(() {
+                            category="Sell";
+                          });
+                        }
+                      },
+                      child: ItemTypeBar(text: "Sell Items", margin: EdgeInsets.only(left: 16,bottom: 10) ,textStyle: MyFonts.w500.size(14).setColor(category=="Sell" ? kBlack : kWhite),backgroundColor: category=="Sell" ? lBlue2 : kBlueGrey),
+                    )
+                  ],
                 ),
-                GestureDetector(
-                  onTap: (){
-                    if(category=="Buy"){
-                      setState(() {
-                        category="Sell";
-                      });
-                    }
-                  },
-                  child: ItemTypeBar(text: "Sell", margin: EdgeInsets.only(left: 16,bottom: 10) ,textStyle: MyFonts.w500.size(14).setColor(category=="Sell" ? kBlack : kWhite),backgroundColor: category=="Sell" ? lBlue2 : kBlueGrey),
-                )
-              ],
-            ),
+              ),
+              category=="Buy" ? (buyItems.isEmpty ? Expanded(child: Center(child: Text("No Buy Items as of now :)", style: MyFonts.w500.size(16).setColor(kWhite),),)) : Expanded(child: ListView(children: buyItems,))) : (sellItems.isEmpty ? Expanded(child: Center(child: Text("No Sell Items as of now :)", style: MyFonts.w500.size(16).setColor(kWhite),),)) : Expanded(child: ListView(children: sellItems,)))
+            ],
           ),
-          category=="Buy" ? (buyItems.isEmpty ? Center(child: Text("No Buy Items as of now :)", style: MyFonts.w500.size(16).setColor(kWhite),),) : Expanded(child: ListView(children: buyItems,))) : (sellItems.isEmpty ? Center(child: Text("No Sell Items as of now :)", style: MyFonts.w500.size(16).setColor(kWhite),),) : Expanded(child: ListView(children: sellItems,)))
-        ],
-      ) : Center(
-        child: CircularProgressIndicator(),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: GestureDetector(
