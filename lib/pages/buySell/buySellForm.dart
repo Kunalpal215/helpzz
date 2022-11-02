@@ -58,127 +58,145 @@ class _BuySellFormState extends State<BuySellForm> {
         ),
       ),
       body: SingleChildScrollView(
-        child: Form(
-          key: formKey,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              isLoading
-                  ? const LinearProgressIndicator()
-                  :
-              Container(
-                margin: const EdgeInsets.only(
-                    top: 40, left: 15, right: 5, bottom: 15),
-                child: Text(
-                  "Fill in the details of ${widget.category == "Buy" ? "Requested Item" : widget.category == "Sell" ? "Selling Item" : widget.category == "Lost" ? "lost object" : "found object"}",
-                  style: MyFonts.w400.size(16).setColor(kWhite),
+        child: ConstrainedBox(
+          constraints: BoxConstraints(maxHeight: MediaQuery.of(context).size.height),
+          child: Form(
+            key: formKey,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Visibility(
+                  visible: isLoading,
+                    child: LinearProgressIndicator(),
                 ),
-              ),
-              Container(
-                margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
-                child: TextFormField(
-                  style: MyFonts.w500.size(15).setColor(kWhite),
-                  onChanged: (value){
-                    title=value.trim();
-                  },
-                  decoration: InputDecoration(
-                    hintText: 'Enter title of item',
-                    border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
-                    fillColor: kAppBarGrey,
-                    filled: true,
-                    hintStyle: MyFonts.w500.size(15).setColor(kGrey10),
+                Container(
+                  margin: const EdgeInsets.only(
+                      top: 40, left: 15, right: 5, bottom: 15),
+                  child: Text(
+                    "Fill in the details of ${widget.category == "Buy" ? "Requested Item" : widget.category == "Sell" ? "Selling Item" : widget.category == "Lost" ? "lost object" : "found object"}",
+                    style: MyFonts.w400.size(16).setColor(kWhite),
                   ),
-                  validator: (value){
-                    if (value == null) {
-                      return 'Field cannot be empty';
-                    }
-                    value=value.trim();
-                    if(value.isEmpty){
-                      return 'Field cannot be empty';
-                    }
-                    return null;
-                  },
                 ),
-              ),
-              Container(
-                margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
-                child: TextFormField(
-                  style: MyFonts.w500.size(15).setColor(kWhite),
-                  onChanged: (value){
-                    description=value.trim();
-                  },
-                  decoration: InputDecoration(
-                    hintText: 'Enter a description',
-                    border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
-                    fillColor: kAppBarGrey,
-                    filled: true,
-                    hintStyle: MyFonts.w500.size(15).setColor(kGrey10),
+                Container(
+                  margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 1),
+                  child: TextFormField(
+                    style: MyFonts.w500.size(15).setColor(kWhite),
+                    onChanged: (value){
+                      title=value.trim();
+                    },
+                    decoration: InputDecoration(
+                      hintText: 'Enter title of item',
+                      border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
+                      fillColor: kAppBarGrey,
+                      filled: true,
+                      hintStyle: MyFonts.w500.size(15).setColor(kGrey10),
+                      counterStyle: MyFonts.w500.size(12).setColor(kWhite),
+                    ),
+                    maxLength: 20,
+                    validator: (value){
+                      if (value == null) {
+                        return 'Field cannot be empty';
+                      }
+                      value=value.trim();
+                      if(value.isEmpty){
+                        return 'Field cannot be empty';
+                      }
+                      return null;
+                    },
                   ),
-                  validator: (value){
-                    if (value == null) {
-                      return 'Field cannot be empty';
-                    }
-                    value=value.trim();
-                    if(value.isEmpty){
-                      return 'Field cannot be empty';
-                    }
-                    return null;
-                  },
                 ),
-              ),
-              Container(
-                margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
-                child: TextFormField(
-                  style: MyFonts.w500.size(15).setColor(kWhite),
-                  onChanged: (value){
-                    contactnumber=value.trim();
-                  },
-                  decoration: InputDecoration(
-                    hintText: 'Enter your contact number',
-                    border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
-                    fillColor: kAppBarGrey,
-                    filled: true,
-                    hintStyle: MyFonts.w500.size(15).setColor(kGrey10),
+                Container(
+                  margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 1),
+                  child: TextFormField(
+                    style: MyFonts.w500.size(15).setColor(kWhite),
+                    onChanged: (value){
+                      description=value.trim();
+                    },
+                    decoration: InputDecoration(
+                      hintText: 'Enter a description',
+                      border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
+                      fillColor: kAppBarGrey,
+                      filled: true,
+                      hintStyle: MyFonts.w500.size(15).setColor(kGrey10),
+                      counterStyle: MyFonts.w500.size(12).setColor(kWhite),
+                    ),
+                    keyboardType: TextInputType.multiline,
+                    maxLines: 7,
+                    maxLength: 100,
+                    validator: (value){
+                      if (value == null) {
+                        return 'Field cannot be empty';
+                      }
+                      value=value.trim();
+                      if(value.isEmpty){
+                        return 'Field cannot be empty';
+                      }
+                      return null;
+                    },
                   ),
-                  validator: (value){
-                    if (value == null) {
-                      return 'Field cannot be empty';
-                    }
-                    value=value.trim();
-                    if(value.isEmpty){
-                      return 'Field cannot be empty';
-                    }
-                    return null;
-                  },
                 ),
-              ),
-              Container(
-                margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
-                child: TextFormField(
-                  style: MyFonts.w500.size(15).setColor(kWhite),
-                  onChanged: (value){
-                    price=value.trim();
-                  },
-                  decoration: InputDecoration(
-                    hintText: 'Enter price range',
-                    border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
-                    fillColor: kAppBarGrey,
-                    filled: true,
-                    hintStyle: MyFonts.w500.size(15).setColor(kGrey10),
+                Container(
+                  margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 1),
+                  child: TextFormField(
+                    style: MyFonts.w500.size(15).setColor(kWhite),
+                    onChanged: (value){
+                      contactnumber=value.trim();
+                    },
+                    decoration: InputDecoration(
+                      hintText: 'Enter your contact number',
+                      border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
+                      fillColor: kAppBarGrey,
+                      filled: true,
+                      hintStyle: MyFonts.w500.size(15).setColor(kGrey10),
+                      counterStyle: MyFonts.w500.size(12).setColor(kWhite),
+                    ),
+                    keyboardType: TextInputType.number,
+                    maxLength: 10,
+                    validator: (value){
+                      if (value == null) {
+                        return 'Field cannot be empty';
+                      }
+                      value=value.trim();
+                      if(value.isEmpty){
+                        return 'Field cannot be empty';
+                      }
+                      if(value.length<10){
+                        return 'length should be 10';
+                      }
+                      return null;
+                    },
                   ),
-                  validator: (value){
-                    if (value == null) {
-                      return 'Field cannot be empty';
-                    }
-                    value=value.trim();
-                    if(value.isEmpty){
-                      return 'Field cannot be empty';
-                    }
-                    return null;
-                  },
                 ),
-              ),
-            ],
+                Container(
+                  margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 1),
+                  child: TextFormField(
+                    style: MyFonts.w500.size(15).setColor(kWhite),
+                    onChanged: (value){
+                      price=value.trim();
+                    },
+                    decoration: InputDecoration(
+                      hintText: 'Enter expected price',
+                      border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
+                      fillColor: kAppBarGrey,
+                      filled: true,
+                      hintStyle: MyFonts.w500.size(15).setColor(kGrey10),
+                      counterStyle: MyFonts.w500.size(12).setColor(kWhite),
+                    ),
+                    keyboardType: TextInputType.number,
+                    validator: (value){
+                      if (value == null) {
+                        return 'Field cannot be empty';
+                      }
+                      value=value.trim();
+                      if(value.isEmpty){
+                        return 'Field cannot be empty';
+                      }
+                      return null;
+                    },
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
