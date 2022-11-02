@@ -19,6 +19,10 @@
 ## 💻 APIs used
 #### <ul><li>[DeepAI's nudity detection API](https://deepai.org/machine-learning-model/nsfw-detector)</li><li>Cloudinary Image upload API</li></ul>
 
+## 🍁 Backend Services
+- Follow [this link](https://github.com/Kunalpal215/helpzz_backend) to the repository.
+- The backend service has been deployed on [heroku](https://dashboard.heroku.com/)
+
 ## Setting up project on your machine ⚙️
 - [Follow this guide](https://swciitg.notion.site/Day-1-f6ea19b1d7ff410e8ec03683772f4cd0) to setup Android Studio & Flutter SDK on your machine
 
@@ -33,7 +37,7 @@
 # 🖼️ Some glimpse of the App
 
 # Why Flutter over React.js 🤔 ?
-- Although, in assignment It was mentioned to use some frontend framework like React.js still, I chose to build a mobile application using Flutter as I have more experience working with Flutter as compared to React.js. Although, I have worked with React.js on several projects but have less worked with designing complex screens.
+- Although, in assignment It was mentioned to use some frontend framework like React.js still, I chose to build a mobile application using Flutter as I have more experience working with Flutter compared to React.js. Although, I have worked with React.js on several projects but have less worked with designing complex screens.
 
 # 🎨 Design
 
@@ -66,5 +70,11 @@
 #### Feel free to [open an issue](https://github.com/Kunalpal215/helpzz/issues) on GitHub if you have feature idea to be added 🙌.
 
 ```
+Submitted by:
+Name: Kunal Pal
+College: IIT Guwahati
+Roll no: 200104048
+Course & year: B.Tech 3rd year
+
 Thanks for visiting my repository 😊!! Please give a star ⭐ if you liked my project.
 ```
