@@ -33,8 +33,15 @@
 - To run the application on a Physical device/Virtual Emulator use command "flutter run" at the root of this project's directory.
 
 ```
+#
 
 # 🖼️ Some glimpse of the App
+<img src="https://res.cloudinary.com/kunalpal215/image/upload/v1667710959/Screenshot_20221106-102752_1_m4itmg.jpg" width="50%"> 
+<img src="https://res.cloudinary.com/kunalpal215/image/upload/v1667710980/Screenshot_20221106-102759_1_baitat.jpg" width="50%">
+<img src="https://res.cloudinary.com/kunalpal215/image/upload/v1667711004/Screenshot_20221106-102825_1_bzfwr8.jpg" width="50%">
+<img src="https://res.cloudinary.com/kunalpal215/image/upload/v1667711025/Screenshot_20221106-102853_1_ushhhj.jpg" width="50%">
+
+#
 
 # Why Flutter over React.js 🤔 ?
 - Although, in assignment It was mentioned to use some frontend framework like React.js still, I chose to build a mobile application using Flutter as I have more experience working with Flutter compared to React.js. Although, I have worked with React.js on several projects but have less worked with designing complex screens.
