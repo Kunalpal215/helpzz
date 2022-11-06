@@ -5,7 +5,7 @@
 #### Helpzz is a E-Commerce mobile application designed to be used in a community where anyone can register and see items added under Buy & Sell by others and also, can add new items under Buy & Sell.
 
 ## Demo
-#### The build version of application can be [downloaded from here](https://iitgoffice-my.sharepoint.com/:u:/g/personal/k_pal_iitg_ac_in/EYmqWapzBUxKkBKVIoLg3-MB2hJEgCMwyug3wDrZfFhHow?e=BK9ssQ).
+#### The build version of application can be [downloaded from here](https://iitgoffice-my.sharepoint.com/:u:/g/personal/k_pal_iitg_ac_in/EfpB-BQchuxEl3_KojmOHOEBQw7LiVAunxMUU0Kx116nMw?e=mcynHr).
 
 ## 🧩 Main Features
 #### <ul><li>Nudity detection in images uploaded under Buy & Sell</li><li>Iteractive UI Screens</li><li>Separate categories under Buy & Sell</li></ul>
