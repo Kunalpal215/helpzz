@@ -27,6 +27,7 @@ class _HomePageState extends State<HomePage> {
   List<Widget> sellItems=[];
   bool loading1 = true;
   bool loading2 = true;
+  bool logoutUser = false;
   @override
   void initState() {
     super.initState();
@@ -64,7 +65,7 @@ class _HomePageState extends State<HomePage> {
     final screenheight = MediaQuery.of(context).size.height;
     Stream typeStream = selectedTypeController.stream.asBroadcastStream();
     return Scaffold(
-      appBar: appBar(screenwidth),
+      appBar: appBar(screenwidth,true),
       body: CircularWidgetLoading(
         dotColor: lBlue2,
         dotCount: 8,

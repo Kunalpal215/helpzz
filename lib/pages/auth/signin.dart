@@ -22,13 +22,14 @@ class _LoginScreenState extends State<LoginScreen> {
   var password;
   final formKey = GlobalKey<FormState>();
   bool signin=false;
+  bool isObscure = true;
 
   @override
   Widget build(BuildContext context) {
     final screenwidth = MediaQuery.of(context).size.width;
     final screenheight = MediaQuery.of(context).size.height;
     return Scaffold(
-      appBar: appBar(screenwidth),
+      appBar: appBar(screenwidth,false),
       body: Stack(
         children: [
           SingleChildScrollView(
@@ -94,8 +95,16 @@ class _LoginScreenState extends State<LoginScreen> {
                         fillColor: kAppBarGrey,
                         filled: true,
                         hintStyle: MyFonts.w500.size(15).setColor(kGrey10),
+                        suffixIcon: IconButton(
+                            onPressed: (){
+                              setState(() {
+                                isObscure=!isObscure;
+                              });
+                            },
+                            icon: Icon(isObscure==true ? Icons.visibility : Icons.visibility_off,color: lBlue2)
+                        )
                       ),
-                      obscureText: true,
+                      obscureText: isObscure,
                     ),
                   ),
                   Container(height: 23,),
@@ -110,6 +119,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       setState(() {
                         signin=true;
                       });
+                      FocusScope.of(context).requestFocus(FocusNode());
                       Map res = await APIService.login(useremail, password);
                       Scaffold.of(builderContext).showSnackBar(SnackBar(content: Text(res["result"])));
                       if(res["success"]){

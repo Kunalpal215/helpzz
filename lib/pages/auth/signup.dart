@@ -23,12 +23,13 @@ class _SignupScreenState extends State<SignupScreen> {
   var password;
   final formKey = GlobalKey<FormState>();
   bool signup=false;
+  bool isObscure = true;
   @override
   Widget build(BuildContext context) {
     final screenwidth = MediaQuery.of(context).size.width;
     final screenheight = MediaQuery.of(context).size.height;
     return Scaffold(
-      appBar: appBar(screenwidth),
+      appBar: appBar(screenwidth,false),
       body: Stack(
         children: [
           SingleChildScrollView(
@@ -121,8 +122,16 @@ class _SignupScreenState extends State<SignupScreen> {
                         fillColor: kAppBarGrey,
                         filled: true,
                         hintStyle: MyFonts.w500.size(15).setColor(kGrey10),
+                          suffixIcon: IconButton(
+                              onPressed: (){
+                                setState(() {
+                                  isObscure=!isObscure;
+                                });
+                              },
+                              icon: Icon(isObscure==true ? Icons.visibility : Icons.visibility_off,color: lBlue2,)
+                          )
                       ),
-                      obscureText: true,
+                      obscureText: isObscure,
                     ),
                   ),
                   Container(height: 23,),
@@ -136,6 +145,7 @@ class _SignupScreenState extends State<SignupScreen> {
                           signup=true;
                         });
                         Map res = await APIService.signup(username, useremail, password);
+                        FocusScope.of(context).requestFocus(FocusNode());
                         Scaffold.of(builderContext).showSnackBar(SnackBar(content: Text(res["result"])));
                         if(res["success"]){
                           context.read<User>().saveToPreferences({'email':useremail,'name':username});

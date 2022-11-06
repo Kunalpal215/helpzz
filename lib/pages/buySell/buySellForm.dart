@@ -213,6 +213,7 @@ class _BuySellFormState extends State<BuySellForm> {
                 });
 
                 var responseBody = await APIService.postItem(widget.category,title, price, description, contactnumber, widget.imageString, context.read<User>().name, context.read<User>().name);
+                FocusScope.of(context).requestFocus(FocusNode());
                 if (!mounted) return;
                 if (responseBody["saved_successfully"] == true) {
                   ScaffoldMessenger.of(context).showSnackBar(SnackBar(

@@ -26,4 +26,9 @@ class User{
     name= prefs.getString('name') ?? " ";
   }
 
+  Future<void> logout() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.clear();
+  }
+
 }
